@@ -1,0 +1,1033 @@
+/* =========================================================
+   DUE TRACKER PAGE
+   HostelHub Owner Panel
+   ========================================================= */
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.owner-page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.owner-page-heading h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.owner-page-heading > div:first-child > span {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: #4f46e5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.owner-page-heading p {
+  max-width: 720px;
+  margin: 9px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   HEADER ACTION
+   ========================================================= */
+
+.owner-welcome-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.owner-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 40px;
+  padding: 0 15px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 10px;
+
+  background: #fff;
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.owner-secondary-button:hover {
+  background: #f8fafc;
+  border-color: #c7d2fe;
+  color: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06);
+}
+
+.owner-secondary-button:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.16);
+  outline-offset: 2px;
+}
+
+.spin-icon {
+  animation: dueRefreshSpin 0.9s linear infinite;
+}
+
+@keyframes dueRefreshSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.due-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.due-summary-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 96px;
+  padding: 18px;
+
+  background: #fff;
+  border: 1px solid #e7ebf3;
+  border-radius: 16px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.04),
+    0 1px 3px rgba(15, 23, 42, 0.03);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.due-summary-card:hover {
+  transform: translateY(-2px);
+  border-color: #d8ddf9;
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.07),
+    0 2px 5px rgba(15, 23, 42, 0.03);
+}
+
+.due-summary-card::after {
+  content: "";
+
+  position: absolute;
+  top: -40px;
+  right: -40px;
+
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+  background: rgba(79, 70, 229, 0.045);
+
+  pointer-events: none;
+}
+
+.due-summary-card > span {
+  position: relative;
+  z-index: 1;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.due-summary-card:nth-child(2) > span {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.due-summary-card:nth-child(3) > span {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.due-summary-card:nth-child(4) > span {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.due-summary-card.danger-card {
+  border-color: #fecdd3;
+  background: linear-gradient(135deg, #fff 0%, #fff8f9 100%);
+}
+
+.due-summary-card.danger-card > span {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.due-summary-card > div {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 0;
+}
+
+.due-summary-card small {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.due-summary-card strong {
+  color: #111827;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* =========================================================
+   MAIN DUE CARD
+   ========================================================= */
+
+.owner-page-card {
+  background: #fff;
+  border: 1px solid #e5eaf2;
+  border-radius: 18px;
+
+  box-shadow:
+    0 6px 22px rgba(15, 23, 42, 0.045),
+    0 1px 3px rgba(15, 23, 42, 0.025);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   FILTER BUTTONS
+   ========================================================= */
+
+.due-filter-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 16px 18px;
+
+  border-bottom: 1px solid #edf0f5;
+
+  background: #fbfcfe;
+
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.due-filter-buttons::-webkit-scrollbar {
+  height: 4px;
+}
+
+.due-filter-buttons::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #cbd5e1;
+}
+
+.due-filter-btn {
+  flex-shrink: 0;
+
+  min-height: 34px;
+  padding: 0 12px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  background: #fff;
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.due-filter-btn:hover {
+  border-color: #c7d2fe;
+  color: #4338ca;
+  background: #f8faff;
+}
+
+.due-filter-btn.active {
+  border-color: #4f46e5;
+  background: #4f46e5;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+.due-filter-btn:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.15);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.owner-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.owner-table {
+  width: 100%;
+  min-width: 950px;
+
+  border-collapse: collapse;
+
+  text-align: left;
+}
+
+.owner-table thead {
+  background: #f8fafc;
+}
+
+.owner-table th {
+  padding: 12px 15px;
+
+  border-bottom: 1px solid #e8edf3;
+
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.owner-table td {
+  padding: 15px;
+
+  border-bottom: 1px solid #eef1f5;
+
+  color: #475569;
+
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.owner-table tbody tr {
+  transition:
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.owner-table tbody tr:hover {
+  background: #fafbff;
+}
+
+.owner-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   CRITICAL DUE ROW
+   ========================================================= */
+
+.owner-table tbody tr.critical-due-row {
+  background: #fffafb;
+}
+
+.owner-table tbody tr.critical-due-row:hover {
+  background: #fff5f6;
+}
+
+.critical-due-row td:first-child {
+  border-left: 3px solid #e11d48;
+}
+
+/* =========================================================
+   STUDENT / SUPERVISOR CELL
+   ========================================================= */
+
+.owner-table td strong {
+  display: block;
+
+  color: #1e293b;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.owner-table td small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  margin-top: 4px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.owner-table td:nth-child(2),
+.owner-table td:nth-child(3) {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.owner-table td:nth-child(4) strong {
+  color: #111827;
+  font-size: 13px;
+}
+
+/* =========================================================
+   DUE STATUS BADGES
+   ========================================================= */
+
+.due-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 25px;
+  padding: 0 9px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+/* Upcoming */
+
+.due-upcoming {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* Today */
+
+.due-today {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+/* Paid */
+
+.due-paid {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+/* Warning */
+
+.due-warning {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+/* Critical */
+
+.due-critical {
+  background: #fff1f2;
+  color: #be123c;
+}
+
+/* =========================================================
+   MESSAGE BUTTON
+   ========================================================= */
+
+.message-supervisor-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-height: 31px;
+  padding: 0 10px;
+
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+
+  background: #eef2ff;
+  color: #4338ca;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.message-supervisor-button:hover {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 12px rgba(79, 70, 229, 0.2);
+}
+
+.message-supervisor-button:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.15);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   PAID STATUS
+   ========================================================= */
+
+.owner-status-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 27px;
+  padding: 0 9px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.status-paid {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+/* =========================================================
+   MODAL OVERLAY
+   ========================================================= */
+
+.owner-modal-overlay {
+  position: fixed;
+  z-index: 9999;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.55);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  animation: dueModalFade 0.2s ease;
+}
+
+@keyframes dueModalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.owner-modal {
+  width: min(520px, 100%);
+
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  padding: 22px;
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 18px;
+
+  background: #fff;
+
+  box-shadow:
+    0 30px 70px rgba(15, 23, 42, 0.22),
+    0 10px 25px rgba(15, 23, 42, 0.1);
+
+  animation: dueModalSlide 0.22s ease;
+}
+
+@keyframes dueModalSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.owner-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.owner-modal-header span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #4f46e5;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.owner-modal-header h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.owner-modal-header > button {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+
+  background: #fff;
+  color: #64748b;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.owner-modal-header > button:hover {
+  border-color: #fecdd3;
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.owner-modal-header > button:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.15);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   MESSAGE DETAILS
+   ========================================================= */
+
+.message-supervisor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin: 17px 0;
+
+  padding: 13px 14px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+
+  background: #f8fafc;
+}
+
+.message-supervisor-details strong {
+  color: #1e293b;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.message-supervisor-details span {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   FORM FIELD
+   ========================================================= */
+
+.owner-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-bottom: 16px;
+}
+
+.owner-form-field > span {
+  color: #334155;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.owner-form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  min-height: 105px;
+
+  padding: 12px 13px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 10px;
+
+  background: #fff;
+  color: #1e293b;
+
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.6;
+
+  resize: vertical;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.owner-form-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.owner-form-field textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.owner-primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 42px;
+  padding: 0 16px;
+
+  border: 1px solid #4f46e5;
+  border-radius: 10px;
+
+  background: #4f46e5;
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.owner-primary-button:hover {
+  background: #4338ca;
+  border-color: #4338ca;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 7px 16px rgba(79, 70, 229, 0.22);
+}
+
+.owner-primary-button:active {
+  transform: translateY(0);
+}
+
+.owner-primary-button:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.15);
+  outline-offset: 2px;
+}
+
+.owner-full-button {
+  width: 100%;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .due-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .owner-table {
+    min-width: 900px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .owner-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .owner-page-heading h1 {
+    font-size: 25px;
+  }
+
+  .owner-page-heading p {
+    font-size: 13px;
+  }
+
+  .owner-welcome-actions {
+    width: 100%;
+  }
+
+  .owner-secondary-button {
+    width: 100%;
+  }
+
+  .due-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .due-summary-card {
+    min-height: 85px;
+    padding: 13px;
+    gap: 10px;
+  }
+
+  .due-summary-card > span {
+    width: 38px;
+    height: 38px;
+  }
+
+  .due-summary-card strong {
+    font-size: 20px;
+  }
+
+  .due-summary-card small {
+    font-size: 10px;
+  }
+
+  .owner-page-card {
+    border-radius: 14px;
+  }
+
+  .due-filter-buttons {
+    padding: 12px;
+  }
+
+  .due-filter-btn {
+    min-height: 32px;
+    padding: 0 10px;
+  }
+
+  .owner-table {
+    min-width: 900px;
+  }
+
+  .owner-modal-overlay {
+    align-items: flex-end;
+    padding: 10px;
+  }
+
+  .owner-modal {
+    max-height: calc(100vh - 20px);
+    padding: 18px;
+
+    border-radius: 17px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .owner-page-heading h1 {
+    font-size: 22px;
+  }
+
+  .owner-page-heading > div:first-child > span {
+    font-size: 9px;
+  }
+
+  .due-summary-grid {
+    gap: 8px;
+  }
+
+  .due-summary-card {
+    min-height: 78px;
+    padding: 10px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .due-summary-card > span {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+  }
+
+  .due-summary-card > span svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .due-summary-card small {
+    font-size: 9px;
+  }
+
+  .due-summary-card strong {
+    font-size: 17px;
+  }
+
+  .owner-modal {
+    padding: 16px;
+  }
+
+  .owner-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .message-supervisor-details {
+    padding: 11px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .due-summary-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .due-summary-card > span {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .due-summary-card,
+  .due-filter-btn,
+  .message-supervisor-button,
+  .owner-primary-button,
+  .owner-secondary-button {
+    transition: none;
+  }
+
+  .spin-icon {
+    animation: none;
+  }
+
+  .owner-modal-overlay,
+  .owner-modal {
+    animation: none;
+  }
+}

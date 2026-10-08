@@ -1,0 +1,639 @@
+/* =========================================================
+   REPAIR REQUESTS - OWNER DASHBOARD
+   ========================================================= */
+
+.repair-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 22px;
+}
+
+/* =========================================================
+   REPAIR CARD
+   ========================================================= */
+
+.repair-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e5eaf2;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.repair-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #64748b;
+}
+
+.repair-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.1);
+  border-color: #d6ddea;
+}
+
+/* Priority borders */
+
+.repair-card.priority-low::before {
+  background: #22c55e;
+}
+
+.repair-card.priority-medium::before {
+  background: #f59e0b;
+}
+
+.repair-card.priority-high::before {
+  background: #f97316;
+}
+
+.repair-card.priority-critical::before {
+  background: #ef4444;
+}
+
+/* =========================================================
+   CARD HEADING
+   ========================================================= */
+
+.repair-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.repair-priority-pill,
+.repair-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Priority */
+
+.repair-priority-pill.priority-low {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.repair-priority-pill.priority-medium {
+  color: #b45309;
+  background: #fef3c7;
+}
+
+.repair-priority-pill.priority-high {
+  color: #c2410c;
+  background: #ffedd5;
+}
+
+.repair-priority-pill.priority-critical {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+/* Status */
+
+.repair-status-pill {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+.repair-status-pill.resolved {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.repair-status-pill.pending {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.repair-category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  margin-bottom: 13px;
+  border-radius: 9px;
+  color: #4f46e5;
+  background: #eef2ff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.repair-category-tag svg {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   TITLE & DESCRIPTION
+   ========================================================= */
+
+.repair-card h3 {
+  margin: 0 0 9px;
+  color: #172033;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.repair-card > p {
+  min-height: 44px;
+  margin: 0 0 18px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.repair-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #e8edf4;
+  border-radius: 11px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.repair-location svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #6366f1;
+}
+
+/* =========================================================
+   FOOTER INFORMATION
+   ========================================================= */
+
+.repair-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 16px;
+  margin-bottom: 17px;
+  border-top: 1px solid #edf0f5;
+}
+
+.repair-footer > div {
+  min-width: 0;
+}
+
+.repair-footer small {
+  display: block;
+  margin-bottom: 5px;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.repair-footer strong {
+  display: block;
+  overflow: hidden;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   STATUS SELECT
+   ========================================================= */
+
+.repair-status-select {
+  display: block;
+}
+
+.repair-status-select span {
+  display: block;
+  margin-bottom: 7px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.repair-status-select select {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 36px 0 12px;
+  border: 1px solid #dce3ed;
+  border-radius: 10px;
+  outline: none;
+  background-color: #fff;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.repair-status-select select:hover {
+  border-color: #b9c4d5;
+}
+
+.repair-status-select select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.11);
+}
+
+/* =========================================================
+   EMPTY / LOADING STATE
+   ========================================================= */
+
+.owner-empty-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  margin: 22px 0;
+  padding: 30px;
+  border: 1px dashed #d8dee8;
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.8);
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   MODAL OVERLAY
+   ========================================================= */
+
+.owner-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  animation: repairOverlayIn 0.2s ease;
+}
+
+@keyframes repairOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.owner-modal {
+  width: min(100%, 620px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.25);
+  animation: repairModalIn 0.25s ease;
+}
+
+@keyframes repairModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.owner-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 21px 24px;
+  border-bottom: 1px solid #edf0f5;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.owner-modal-header span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6366f1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.owner-modal-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.owner-modal-header > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.owner-modal-header > button:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  transform: rotate(4deg);
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.owner-modal form {
+  padding: 24px;
+}
+
+.owner-form-field {
+  display: block;
+  margin-bottom: 17px;
+}
+
+.owner-form-field > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.owner-form-field input,
+.owner-form-field select,
+.owner-form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dbe2eb;
+  border-radius: 11px;
+  outline: none;
+  background: #ffffff;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.owner-form-field input,
+.owner-form-field select {
+  height: 44px;
+  padding: 0 13px;
+}
+
+.owner-form-field textarea {
+  min-height: 90px;
+  padding: 12px 13px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.owner-form-field input::placeholder,
+.owner-form-field textarea::placeholder {
+  color: #a0aec0;
+}
+
+.owner-form-field input:hover,
+.owner-form-field select:hover,
+.owner-form-field textarea:hover {
+  border-color: #c4cedc;
+}
+
+.owner-form-field input:focus,
+.owner-form-field select:focus,
+.owner-form-field textarea:focus {
+  border-color: #6366f1;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Two-column form */
+
+.owner-form-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.owner-form-two .owner-form-field {
+  min-width: 0;
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.owner-full-button {
+  width: 100%;
+  min-height: 46px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   RESPONSIVE - LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1150px) {
+  .repair-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+  .repair-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .repair-card {
+    padding: 20px;
+  }
+
+  .owner-form-two {
+    gap: 12px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .repair-grid {
+    margin-top: 16px;
+  }
+
+  .repair-card {
+    border-radius: 17px;
+    padding: 17px;
+  }
+
+  .repair-card-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .repair-priority-pill,
+  .repair-status-pill {
+    font-size: 10px;
+  }
+
+  .repair-card h3 {
+    font-size: 17px;
+  }
+
+  .repair-card > p {
+    min-height: auto;
+    font-size: 12px;
+  }
+
+  .repair-footer {
+    gap: 8px;
+  }
+
+  .owner-form-two {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .owner-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .owner-modal {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 22px 22px 0 0;
+    animation: repairMobileModalIn 0.25s ease;
+  }
+
+  @keyframes repairMobileModalIn {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .owner-modal-header {
+    padding: 18px 18px;
+  }
+
+  .owner-modal-header h2 {
+    font-size: 19px;
+  }
+
+  .owner-modal form {
+    padding: 20px 18px 24px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .repair-card {
+    padding: 15px;
+  }
+
+  .repair-card-heading {
+    gap: 7px;
+  }
+
+  .repair-priority-pill,
+  .repair-status-pill {
+    padding: 5px 8px;
+  }
+
+  .repair-location {
+    padding: 10px;
+  }
+
+  .repair-footer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .owner-modal-header {
+    padding: 16px;
+  }
+
+  .owner-modal form {
+    padding: 18px 16px 22px;
+  }
+}

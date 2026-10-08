@@ -1,0 +1,553 @@
+/* =========================================================
+   DUE TRACKER
+   ========================================================= */
+
+.due-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.due-summary-card {
+  min-width: 0;
+  min-height: 100px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px;
+
+  background: #ffffff;
+  border: 1px solid #e7ebf2;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.035);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.due-summary-card:hover {
+  transform: translateY(-2px);
+  border-color: #dbe3ef;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+}
+
+.due-summary-card > span {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.due-summary-card:nth-child(2) > span {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.due-summary-card:nth-child(3) > span {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.due-summary-card:nth-child(4) > span {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+/* =========================================================
+   DANGER CARD
+   ========================================================= */
+
+.due-summary-card.danger-card {
+  border-color: #fee2e2;
+  background: #fffafa;
+}
+
+.due-summary-card.danger-card > span {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+/* =========================================================
+   SUMMARY TEXT
+   ========================================================= */
+
+.due-summary-card > div {
+  min-width: 0;
+}
+
+.due-summary-card small {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #8a99ad;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.due-summary-card strong {
+  display: block;
+
+  color: #172033;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 800;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.due-summary-card.danger-card strong {
+  color: #dc2626;
+}
+
+/* =========================================================
+   FILTER SECTION
+   ========================================================= */
+
+.due-filter-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.due-filter-buttons::-webkit-scrollbar {
+  height: 4px;
+}
+
+.due-filter-buttons::-webkit-scrollbar-thumb {
+  background: #d9e0ea;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   FILTER BUTTON
+   ========================================================= */
+
+.due-filter-btn {
+  flex: 0 0 auto;
+
+  min-height: 34px;
+  padding: 0 13px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #64748b;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.due-filter-btn:hover {
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.due-filter-btn:active {
+  transform: scale(0.98);
+}
+
+.due-filter-btn.active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.owner-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.owner-table {
+  width: 100%;
+  min-width: 760px;
+
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.owner-table thead {
+  background: #f8fafc;
+}
+
+.owner-table th {
+  padding: 13px 18px;
+
+  border-bottom: 1px solid #e8edf3;
+
+  color: #8a99ad;
+
+  font-size: 9px;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  white-space: nowrap;
+}
+
+.owner-table td {
+  padding: 15px 18px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.owner-table tbody tr {
+  background: #ffffff;
+
+  transition: background 0.2s ease;
+}
+
+.owner-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.owner-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.owner-table td strong {
+  color: #263247;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   CRITICAL DUE ROW
+   ========================================================= */
+
+.owner-table tr.critical-due-row {
+  background: #fffafa;
+}
+
+.owner-table tr.critical-due-row:hover {
+  background: #fff5f5;
+}
+
+.owner-table tr.critical-due-row td:first-child {
+  border-left: 3px solid #ef4444;
+}
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.due-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 25px;
+  padding: 0 9px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+/* Upcoming */
+
+.due-upcoming {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* Today */
+
+.due-today {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+/* Paid */
+
+.due-paid {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+/* Warning */
+
+.due-warning {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+/* Critical */
+
+.due-critical {
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+/* =========================================================
+   ACTION BUTTON
+   ========================================================= */
+
+.owner-table-button {
+  width: 32px;
+  height: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.owner-table-button:hover {
+  border-color: #bfdbfe;
+  background: #dbeafe;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PAID STATUS TAG
+   ========================================================= */
+
+.owner-status-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 25px;
+  padding: 0 9px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.owner-status-tag.status-paid {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+/* =========================================================
+   EMPTY TABLE
+   ========================================================= */
+
+.owner-table tbody:empty::after {
+  content: "No due records found";
+  display: block;
+
+  padding: 30px;
+
+  color: #94a3b8;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .due-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .due-filter-buttons {
+    padding: 15px 16px;
+  }
+
+  .owner-table th,
+  .owner-table td {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .due-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+
+    margin-bottom: 16px;
+  }
+
+  .due-summary-card {
+    min-height: 84px;
+
+    gap: 10px;
+    padding: 12px;
+
+    border-radius: 13px;
+  }
+
+  .due-summary-card > span {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+
+    border-radius: 10px;
+  }
+
+  .due-summary-card > span svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .due-summary-card small {
+    margin-bottom: 4px;
+    font-size: 8px;
+  }
+
+  .due-summary-card strong {
+    font-size: 19px;
+  }
+
+  .due-filter-buttons {
+    gap: 7px;
+    padding: 13px;
+
+    border-bottom: 1px solid #edf0f4;
+  }
+
+  .due-filter-btn {
+    min-height: 32px;
+    padding: 0 10px;
+
+    font-size: 9px;
+  }
+
+  .owner-table {
+    min-width: 700px;
+  }
+
+  .owner-table th {
+    padding: 11px 12px;
+    font-size: 8px;
+  }
+
+  .owner-table td {
+    padding: 13px 12px;
+    font-size: 10px;
+  }
+
+  .owner-table td strong {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+  .due-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .due-summary-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 11px;
+  }
+
+  .due-summary-card > span {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .due-summary-card strong {
+    font-size: 18px;
+  }
+
+  .due-summary-card small {
+    font-size: 8px;
+  }
+
+  .owner-table {
+    min-width: 680px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 340px) {
+  .due-summary-card {
+    padding: 9px;
+  }
+
+  .due-summary-card strong {
+    font-size: 17px;
+  }
+}

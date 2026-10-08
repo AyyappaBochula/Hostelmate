@@ -1,0 +1,739 @@
+/* =========================================================
+   HOSTELS PAGE
+   Modern SaaS / Hostel Management UI
+   Blue + Indigo + Light Background
+   ========================================================= */
+
+/* ---------- PAGE HEADING ---------- */
+
+.owner-page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.owner-page-heading > div:first-child span {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #4f46e5;
+}
+
+.owner-page-heading h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  color: #172033;
+}
+
+.owner-page-heading p {
+  margin: 9px 0 0;
+  max-width: 650px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+
+/* ---------- HEADER ACTIONS ---------- */
+
+.owner-welcome-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.owner-primary-button,
+.owner-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.owner-primary-button {
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
+}
+
+.owner-primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(79, 70, 229, 0.28);
+}
+
+.owner-secondary-button {
+  color: #374151;
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.owner-secondary-button:hover {
+  transform: translateY(-2px);
+  border-color: #c7d2fe;
+  background: #f8faff;
+  box-shadow: 0 7px 18px rgba(15, 23, 42, 0.07);
+}
+
+.owner-primary-button:active,
+.owner-secondary-button:active {
+  transform: translateY(0);
+}
+
+
+/* ---------- REFRESH ANIMATION ---------- */
+
+.spin-icon {
+  animation: ownerSpin 1s linear infinite;
+}
+
+@keyframes ownerSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ---------- MAIN CARD ---------- */
+
+.owner-page-card {
+  width: 100%;
+  padding: 22px;
+  border: 1px solid #e5eaf2;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.055);
+}
+
+
+/* ---------- SEARCH ---------- */
+
+.owner-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 46px;
+  margin-bottom: 22px;
+  padding: 0 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #64748b;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.owner-search-box:focus-within {
+  background: #ffffff;
+  border-color: #818cf8;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.09);
+}
+
+.owner-search-box input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #172033;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.owner-search-box input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* ---------- EMPTY / LOADING ---------- */
+
+.owner-empty-text {
+  min-height: 180px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+
+/* ---------- HOSTEL GRID ---------- */
+
+.owner-hostel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+
+/* ---------- HOSTEL CARD ---------- */
+
+.owner-hostel-card {
+  position: relative;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e5eaf2;
+  border-radius: 17px;
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #fbfdff 100%
+  );
+  box-shadow: 0 7px 22px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.owner-hostel-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 3px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(90deg, #4f46e5, #3b82f6);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.owner-hostel-card:hover {
+  transform: translateY(-5px);
+  border-color: #d7ddf8;
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.09);
+}
+
+.owner-hostel-card:hover::before {
+  opacity: 1;
+}
+
+
+/* ---------- CARD TOP ---------- */
+
+.owner-hostel-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.owner-hostel-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  color: #4f46e5;
+  background: linear-gradient(
+    135deg,
+    #eef2ff,
+    #eff6ff
+  );
+  border: 1px solid #e0e7ff;
+}
+
+
+/* ---------- STATUS ---------- */
+
+.owner-table-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.owner-table-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-active {
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.status-active::before {
+  background: #22c55e;
+}
+
+.status-inactive {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.status-inactive::before {
+  background: #ef4444;
+}
+
+
+/* ---------- HOSTEL TITLE ---------- */
+
+.owner-hostel-card h3 {
+  margin: 0 0 7px;
+  color: #172033;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  word-break: break-word;
+}
+
+
+/* ---------- HOSTEL TYPE ---------- */
+
+.owner-hostel-type {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* ---------- ADDRESS ---------- */
+
+.owner-hostel-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  min-height: 55px;
+  margin: 0 0 18px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.owner-hostel-address svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #6366f1;
+}
+
+
+/* ---------- CARD ACTIONS ---------- */
+
+.owner-hostel-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 15px;
+  border-top: 1px solid #eef2f7;
+}
+
+.owner-details-link {
+  flex: 1;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 11px;
+  border-radius: 9px;
+  background: #eef2ff;
+  color: #4338ca;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 750;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.owner-details-link:hover {
+  background: #e0e7ff;
+  color: #3730a3;
+  transform: translateY(-1px);
+}
+
+.owner-icon-action-btn {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.owner-icon-action-btn:hover {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ADD HOSTEL MODAL
+   ========================================================= */
+
+.owner-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  animation: modalOverlayIn 0.2s ease;
+}
+
+@keyframes modalOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ---------- MODAL ---------- */
+
+.owner-modal {
+  width: min(560px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.22),
+    0 10px 30px rgba(15, 23, 42, 0.08);
+  animation: modalSlideIn 0.25s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ---------- MODAL HEADER ---------- */
+
+.owner-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 24px 18px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.owner-modal-header span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6366f1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.owner-modal-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.owner-modal-header > button {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.owner-modal-header > button:hover {
+  background: #fef2f2;
+  color: #dc2626;
+  transform: rotate(4deg);
+}
+
+
+/* ---------- FORM ---------- */
+
+.owner-modal form {
+  padding: 22px 24px 24px;
+}
+
+.owner-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 17px;
+}
+
+.owner-form-field > span {
+  color: #334155;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.owner-form-field input,
+.owner-form-field select {
+  width: 100%;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 13px;
+  border: 1px solid #dce3ec;
+  border-radius: 10px;
+  outline: none;
+  background: #f8fafc;
+  color: #172033;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.owner-form-field input:hover,
+.owner-form-field select:hover {
+  border-color: #cbd5e1;
+}
+
+.owner-form-field input:focus,
+.owner-form-field select:focus {
+  background: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.09);
+}
+
+.owner-form-field input::placeholder {
+  color: #94a3b8;
+}
+
+.owner-form-field select {
+  cursor: pointer;
+}
+
+
+/* ---------- TWO COLUMN FORM ---------- */
+
+.owner-form-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+
+/* ---------- FULL BUTTON ---------- */
+
+.owner-full-button {
+  width: 100%;
+  margin-top: 5px;
+  min-height: 46px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* ---------- LAPTOP ---------- */
+
+@media (max-width: 1200px) {
+  .owner-hostel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 850px) {
+  .owner-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .owner-welcome-actions {
+    width: 100%;
+  }
+
+  .owner-welcome-actions .owner-secondary-button,
+  .owner-welcome-actions .owner-primary-button {
+    flex: 1;
+  }
+
+  .owner-hostel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .owner-page-heading {
+    gap: 17px;
+    margin-bottom: 20px;
+  }
+
+  .owner-page-heading h1 {
+    font-size: 26px;
+  }
+
+  .owner-page-heading p {
+    font-size: 13px;
+  }
+
+  .owner-welcome-actions {
+    gap: 8px;
+  }
+
+  .owner-primary-button,
+  .owner-secondary-button {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .owner-page-card {
+    padding: 14px;
+    border-radius: 15px;
+  }
+
+  .owner-search-box {
+    height: 43px;
+    margin-bottom: 16px;
+  }
+
+  .owner-hostel-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .owner-hostel-card {
+    padding: 17px;
+  }
+
+  .owner-hostel-card h3 {
+    font-size: 17px;
+  }
+
+  .owner-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .owner-modal {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .owner-modal-header {
+    padding: 20px 18px 16px;
+  }
+
+  .owner-modal form {
+    padding: 18px;
+  }
+
+  .owner-form-two {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media (max-width: 380px) {
+  .owner-welcome-actions {
+    flex-direction: column;
+  }
+
+  .owner-welcome-actions .owner-secondary-button,
+  .owner-welcome-actions .owner-primary-button {
+    width: 100%;
+  }
+
+  .owner-hostel-actions {
+    gap: 6px;
+  }
+
+  .owner-details-link {
+    font-size: 11px;
+  }
+}

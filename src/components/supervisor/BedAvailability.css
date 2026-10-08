@@ -1,0 +1,539 @@
+/* =========================================================
+   BED AVAILABILITY PAGE
+   ========================================================= */
+
+.bed-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.bed-summary-card {
+  min-width: 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e7ebf2;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.035);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bed-summary-card:hover {
+  transform: translateY(-2px);
+  border-color: #dbe3ef;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+}
+
+.bed-summary-card > span {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.bed-summary-card:nth-child(2) > span {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.bed-summary-card:nth-child(3) > span {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.bed-summary-card:nth-child(4) > span {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.bed-summary-card > div {
+  min-width: 0;
+}
+
+.bed-summary-card small {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #8a99ad;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.bed-summary-card strong {
+  display: block;
+
+  color: #172033;
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+/* =========================================================
+   HOSTEL BED CONTAINER
+   ========================================================= */
+
+.bed-hostel-card {
+  background: #ffffff;
+  border: 1px solid #e7ebf2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.035);
+}
+
+/* =========================================================
+   FLOOR SECTION
+   ========================================================= */
+
+.bed-floor {
+  padding: 22px;
+}
+
+.bed-floor + .bed-floor {
+  border-top: 1px solid #edf0f5;
+}
+
+.bed-floor-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.bed-floor-heading h3 {
+  margin: 0;
+
+  color: #172033;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.bed-floor-heading span {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 28px;
+  padding: 0 10px;
+
+  border: 1px solid #e4e9f1;
+  border-radius: 8px;
+
+  background: #f8fafc;
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   ROOM GRID
+   ========================================================= */
+
+.bed-room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* =========================================================
+   ROOM CARD
+   ========================================================= */
+
+.bed-room-card {
+  min-width: 0;
+  padding: 15px;
+
+  border: 1px solid #e7ebf2;
+  border-radius: 14px;
+
+  background: #fbfcfe;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bed-room-card:hover {
+  transform: translateY(-2px);
+  border-color: #d8e1ed;
+  background: #ffffff;
+  box-shadow: 0 7px 18px rgba(15, 23, 42, 0.06);
+}
+
+.bed-room-card.room-full {
+  border-color: #fecdd3;
+  background: #fffafa;
+}
+
+/* =========================================================
+   ROOM HEADER
+   ========================================================= */
+
+.bed-room-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding-bottom: 13px;
+  margin-bottom: 13px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.bed-room-heading > div {
+  min-width: 0;
+}
+
+.bed-room-heading > div > span {
+  display: block;
+  margin-bottom: 3px;
+
+  color: #94a3b8;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.bed-room-heading h4 {
+  margin: 0;
+
+  color: #172033;
+  font-size: 19px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+/* =========================================================
+   ROOM FILL BADGE
+   ========================================================= */
+
+.room-fill-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 25px;
+  padding: 0 8px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.room-fill-badge.free {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.room-fill-badge.full {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+/* =========================================================
+   BED LIST
+   ========================================================= */
+
+.bed-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* =========================================================
+   INDIVIDUAL BED
+   ========================================================= */
+
+.bed-item {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 9px;
+
+  border: 1px solid #e8edf3;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bed-item:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   BED ICON
+   ========================================================= */
+
+.bed-item > svg {
+  flex: 0 0 auto;
+}
+
+/* =========================================================
+   BED TEXT
+   ========================================================= */
+
+.bed-item > div {
+  min-width: 0;
+}
+
+.bed-item strong {
+  display: block;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #263247;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.bed-item span {
+  display: block;
+  margin-top: 2px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #94a3b8;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   AVAILABLE BED
+   ========================================================= */
+
+.bed-available {
+  border-color: #d1fae5;
+  background: #f6fffb;
+}
+
+.bed-available > svg {
+  color: #059669;
+}
+
+/* =========================================================
+   OCCUPIED BED
+   ========================================================= */
+
+.bed-occupied {
+  border-color: #dbeafe;
+  background: #f8fbff;
+}
+
+.bed-occupied > svg {
+  color: #2563eb;
+}
+
+.bed-occupied span {
+  color: #64748b;
+}
+
+/* =========================================================
+   MAINTENANCE BED
+   ========================================================= */
+
+.bed-maintenance {
+  border-color: #fed7aa;
+  background: #fffaf5;
+}
+
+.bed-maintenance > svg {
+  color: #ea580c;
+}
+
+.bed-maintenance span {
+  color: #c2410c;
+}
+
+/* =========================================================
+   EMPTY / LOADING TEXT
+   ========================================================= */
+
+.owner-empty-text {
+  margin: 25px 0;
+
+  padding: 30px;
+
+  border: 1px dashed #dce3ec;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  color: #94a3b8;
+  text-align: center;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .bed-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bed-room-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .bed-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .bed-summary-card {
+    min-height: 82px;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 13px;
+  }
+
+  .bed-summary-card > span {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+    border-radius: 10px;
+  }
+
+  .bed-summary-card > span svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .bed-summary-card small {
+    font-size: 9px;
+  }
+
+  .bed-summary-card strong {
+    font-size: 20px;
+  }
+
+  .bed-hostel-card {
+    border-radius: 14px;
+  }
+
+  .bed-floor {
+    padding: 16px 13px;
+  }
+
+  .bed-room-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .bed-floor-heading {
+    margin-bottom: 12px;
+  }
+
+  .bed-floor-heading h3 {
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+  .bed-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bed-summary-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bed-summary-card > span {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .bed-summary-card strong {
+    font-size: 19px;
+  }
+
+  .bed-summary-card small {
+    font-size: 8px;
+  }
+
+  .bed-floor-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bed-floor-heading span {
+    font-size: 9px;
+  }
+
+  .bed-items {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 340px) {
+  .bed-items {
+    grid-template-columns: 1fr;
+  }
+
+  .bed-summary-card {
+    padding: 10px;
+  }
+
+  .bed-summary-card strong {
+    font-size: 18px;
+  }
+}

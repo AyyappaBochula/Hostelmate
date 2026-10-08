@@ -1,0 +1,496 @@
+/* =========================================================
+   SUBSCRIPTION / BILLING - OWNER DASHBOARD
+   ========================================================= */
+
+.owner-subscription-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 22px;
+  margin-top: 24px;
+}
+
+/* =========================================================
+   COMMON CARD
+   ========================================================= */
+
+.owner-subscription-page-grid .owner-page-card {
+  position: relative;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid #e4e9f1;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.owner-subscription-page-grid .owner-page-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.09);
+}
+
+/* =========================================================
+   PLAN ICON
+   ========================================================= */
+
+.owner-plan-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 20px;
+  border: 1px solid #dbeafe;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #eff6ff, #eef2ff);
+  color: #2563eb;
+}
+
+.owner-plan-icon-wrap svg {
+  stroke-width: 2;
+}
+
+/* =========================================================
+   CARD TEXT
+   ========================================================= */
+
+.owner-card-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #6366f1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.owner-subscription-page-grid .owner-page-card h2 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.owner-subscription-page-grid .owner-page-card > p {
+  max-width: 520px;
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   TRIAL COUNTDOWN
+   ========================================================= */
+
+.owner-trial-large {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin-top: 30px;
+  margin-bottom: 14px;
+}
+
+.owner-trial-large strong {
+  color: #2563eb;
+  font-size: 54px;
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.owner-trial-large span {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   TRIAL PROGRESS
+   ========================================================= */
+
+.owner-large-progress {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8eef7;
+}
+
+.owner-large-progress span {
+  display: block;
+  height: 100%;
+  min-width: 5px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2563eb, #6366f1);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+  transition: width 0.5s ease;
+}
+
+.owner-trial-subtext {
+  display: block;
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   PRICING CARD
+   ========================================================= */
+
+.owner-pricing-card {
+  border-color: #cfd6ff !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.1), transparent 35%),
+    #ffffff !important;
+}
+
+.owner-pricing-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #6366f1, #818cf8);
+}
+
+/* =========================================================
+   RECOMMENDED BADGE
+   ========================================================= */
+
+.owner-popular-badge {
+  position: absolute;
+  top: 19px;
+  right: 20px;
+  padding: 7px 11px;
+  border: 1px solid #c7d2fe;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+}
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.owner-pricing-card h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  color: #312e81 !important;
+  font-size: 38px !important;
+  letter-spacing: -0.035em;
+}
+
+.owner-pricing-card h2 small {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* =========================================================
+   PLAN FEATURES
+   ========================================================= */
+
+.owner-plan-features {
+  display: grid;
+  gap: 12px;
+  margin: 25px 0;
+  padding: 18px 0;
+  border-top: 1px solid #edf0f5;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.owner-plan-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.owner-plan-feature-item svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  padding: 3px;
+  width: 21px;
+  height: 21px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* =========================================================
+   FULL SUBSCRIBE BUTTON
+   ========================================================= */
+
+.owner-pricing-card .owner-full-button {
+  min-height: 48px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* =========================================================
+   COUPON SECTION
+   ========================================================= */
+
+.owner-coupon-section {
+  margin-top: 22px;
+  padding: 23px 26px;
+  border: 1px solid #e7ebf1;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.045);
+}
+
+/* =========================================================
+   COUPON HEADER
+   ========================================================= */
+
+.owner-coupon-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.owner-coupon-header > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.owner-coupon-header h3 {
+  margin: 0 0 4px;
+  color: #1e293b;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.owner-coupon-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.owner-coupon-header strong {
+  color: #d97706;
+  font-weight: 800;
+}
+
+/* =========================================================
+   COUPON FORM
+   ========================================================= */
+
+.owner-coupon-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 11px;
+  margin-top: 17px;
+}
+
+.owner-coupon-form input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 13px;
+  border: 1px solid #dbe2eb;
+  border-radius: 10px;
+  outline: none;
+  background: #f8fafc;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.owner-coupon-form input::placeholder {
+  color: #a0aec0;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.owner-coupon-form input:hover {
+  border-color: #c4cedc;
+}
+
+.owner-coupon-form input:focus {
+  border-color: #6366f1;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.owner-coupon-form .owner-secondary-button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   COUPON FEEDBACK
+   ========================================================= */
+
+.owner-coupon-feedback {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #dbeafe;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   SECURITY MESSAGE
+   ========================================================= */
+
+.owner-subscription-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 19px 0 5px;
+  color: #64748b;
+  font-size: 11px;
+  text-align: center;
+}
+
+.owner-subscription-security svg {
+  flex-shrink: 0;
+  color: #16a34a;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .owner-subscription-page-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .owner-subscription-page-grid .owner-page-card {
+    padding: 24px;
+  }
+
+  .owner-pricing-card {
+    order: 2;
+  }
+
+  .owner-subscription-page-grid .owner-page-card:first-child {
+    order: 1;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .owner-subscription-page-grid {
+    margin-top: 17px;
+    gap: 15px;
+  }
+
+  .owner-subscription-page-grid .owner-page-card {
+    padding: 20px;
+    border-radius: 17px;
+  }
+
+  .owner-plan-icon-wrap {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 17px;
+    border-radius: 13px;
+  }
+
+  .owner-subscription-page-grid .owner-page-card h2 {
+    font-size: 23px;
+  }
+
+  .owner-trial-large {
+    margin-top: 24px;
+  }
+
+  .owner-trial-large strong {
+    font-size: 46px;
+  }
+
+  .owner-pricing-card h2 {
+    font-size: 34px !important;
+  }
+
+  .owner-popular-badge {
+    top: 16px;
+    right: 16px;
+  }
+
+  .owner-coupon-section {
+    margin-top: 15px;
+    padding: 19px;
+    border-radius: 17px;
+  }
+
+  .owner-coupon-form {
+    grid-template-columns: 1fr;
+  }
+
+  .owner-coupon-form .owner-secondary-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .owner-subscription-security {
+    padding: 0 12px;
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .owner-subscription-page-grid .owner-page-card {
+    padding: 17px;
+  }
+
+  .owner-trial-large strong {
+    font-size: 42px;
+  }
+
+  .owner-plan-features {
+    gap: 10px;
+    margin: 21px 0;
+  }
+
+  .owner-plan-feature-item {
+    font-size: 12px;
+  }
+
+  .owner-coupon-section {
+    padding: 16px;
+  }
+
+  .owner-coupon-header h3 {
+    font-size: 15px;
+  }
+}

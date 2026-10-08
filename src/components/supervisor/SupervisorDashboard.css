@@ -1,0 +1,1493 @@
+/* =========================================================
+   SUPERVISOR DASHBOARD - HOSTELHUB
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.supervisor-welcome-section,
+.supervisor-stat-card,
+.supervisor-card,
+.supervisor-quick-action-btn {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.supervisor-dashboard-page {
+  width: 100%;
+  min-height: 100%;
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(79, 70, 229, 0.045),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 0% 30%,
+      rgba(37, 99, 235, 0.035),
+      transparent 25%
+    ),
+    #f6f8fc;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+   ========================================================= */
+
+.supervisor-welcome-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 18px;
+  padding: 23px 26px;
+
+  border: 1px solid #e5eaf2;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f8faff 100%
+  );
+
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.045);
+}
+
+.supervisor-welcome-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 8px;
+
+  color: #2563eb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.supervisor-welcome-section h1 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: clamp(25px, 3vw, 32px);
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: -0.035em;
+}
+
+.supervisor-welcome-section h1 strong {
+  color: #2563eb;
+}
+
+.supervisor-welcome-section p {
+  margin: 8px 0 0;
+
+  max-width: 650px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.supervisor-welcome-section p strong {
+  color: #334155;
+}
+
+
+/* =========================================================
+   WELCOME ACTIONS
+   ========================================================= */
+
+.supervisor-welcome-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+.supervisor-secondary-button,
+.supervisor-primary-button {
+  min-height: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 15px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.supervisor-secondary-button {
+  border: 1px solid #dbe2ec;
+
+  background: #ffffff;
+
+  color: #475569;
+}
+
+.supervisor-secondary-button:hover {
+  transform: translateY(-1px);
+
+  border-color: #bfdbfe;
+
+  background: #f8fbff;
+
+  color: #2563eb;
+}
+
+.supervisor-primary-button {
+  border: 1px solid #2563eb;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+}
+
+.supervisor-primary-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 9px 22px rgba(37, 99, 235, 0.27);
+}
+
+
+/* =========================================================
+   TOP STAT GRID
+   ========================================================= */
+
+.supervisor-stat-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.supervisor-stat-card {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid #e5eaf2;
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.supervisor-stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 78px;
+  height: 78px;
+
+  right: -30px;
+  top: -30px;
+
+  border-radius: 50%;
+
+  opacity: 0.055;
+}
+
+.supervisor-stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #d8e0eb;
+
+  box-shadow: 0 9px 25px rgba(15, 23, 42, 0.075);
+}
+
+
+/* =========================================================
+   STAT ICON
+   ========================================================= */
+
+.supervisor-stat-icon {
+  width: 46px;
+  height: 46px;
+
+  flex: 0 0 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+}
+
+.supervisor-stat-main {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.supervisor-stat-main > span {
+  margin-bottom: 3px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.supervisor-stat-main strong {
+  color: #172033;
+
+  font-size: 25px;
+  line-height: 1.1;
+
+  font-weight: 800;
+}
+
+.supervisor-stat-main small {
+  display: block;
+
+  margin-top: 4px;
+
+  overflow: hidden;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   STAT COLORS
+   ========================================================= */
+
+.variant-blue .supervisor-stat-icon {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.variant-blue::after {
+  background: #2563eb;
+}
+
+.variant-emerald .supervisor-stat-icon {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.variant-emerald::after {
+  background: #059669;
+}
+
+.variant-indigo .supervisor-stat-icon {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.variant-indigo::after {
+  background: #4f46e5;
+}
+
+.variant-amber .supervisor-stat-icon {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.variant-amber::after {
+  background: #d97706;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD GRID
+   ========================================================= */
+
+.supervisor-dashboard-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   COMMON CARD
+   ========================================================= */
+
+.supervisor-card {
+  min-width: 0;
+
+  border: 1px solid #e5eaf2;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow: 0 5px 22px rgba(15, 23, 42, 0.045);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CARD HEADING
+   ========================================================= */
+
+.supervisor-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 18px 21px 16px;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.supervisor-card-eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #6473f2;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.supervisor-card-heading h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 17px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: -0.025em;
+}
+
+.supervisor-card-action {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  flex-shrink: 0;
+
+  padding-top: 6px;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+.supervisor-card-action:hover {
+  color: #1d4ed8;
+}
+
+
+/* =========================================================
+   OCCUPANCY SECTION
+   ========================================================= */
+
+.supervisor-occupancy {
+  display: grid;
+
+  grid-template-columns: 180px minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 22px;
+
+  min-height: 215px;
+
+  padding: 22px;
+}
+
+
+/* =========================================================
+   RADIAL GAUGE
+   ========================================================= */
+
+.supervisor-radial-gauge-container {
+  position: relative;
+
+  width: 155px;
+  height: 155px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.supervisor-radial-svg {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  transform: rotate(-90deg);
+}
+
+.supervisor-radial-bg {
+  fill: none;
+
+  stroke: #edf1f7;
+}
+
+.supervisor-radial-progress {
+  fill: none;
+
+  stroke: #2563eb;
+
+  stroke-linecap: round;
+
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.supervisor-radial-text {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  pointer-events: none;
+}
+
+.supervisor-radial-text strong {
+  color: #172033;
+
+  font-size: 30px;
+  line-height: 1;
+
+  font-weight: 850;
+
+  letter-spacing: -0.04em;
+}
+
+.supervisor-radial-text span {
+  margin-top: 6px;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  font-weight: 750;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   MINI STAT GRID
+   ========================================================= */
+
+.supervisor-mini-stats {
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   MINI STAT
+   ========================================================= */
+
+.supervisor-mini-stat {
+  min-width: 0;
+
+  min-height: 70px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 12px 13px;
+
+  border: 1px solid #edf1f6;
+
+  border-radius: 12px;
+
+  background: #fafbfc;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.supervisor-mini-stat:hover {
+  transform: translateY(-2px);
+
+  border-color: #dbe4f0;
+
+  background: #ffffff;
+
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.055);
+}
+
+.supervisor-mini-stat span {
+  overflow: hidden;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.supervisor-mini-stat strong {
+  margin-top: 5px;
+
+  color: #1e293b;
+
+  font-size: 21px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FINANCE LIST
+   ========================================================= */
+
+.supervisor-finance-list {
+  padding: 5px 21px 14px;
+}
+
+.supervisor-finance-item {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  min-height: 77px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #f0f2f6;
+}
+
+.supervisor-finance-item:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   FINANCE ICON
+   ========================================================= */
+
+.supervisor-finance-icon {
+  width: 40px;
+  height: 40px;
+
+  flex: 0 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+}
+
+.finance-success .supervisor-finance-icon {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.finance-info .supervisor-finance-icon {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.finance-warning .supervisor-finance-icon {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+
+/* =========================================================
+   FINANCE TEXT
+   ========================================================= */
+
+.supervisor-finance-text {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.supervisor-finance-text small {
+  overflow: hidden;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.supervisor-finance-text strong {
+  flex-shrink: 0;
+
+  color: #172033;
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   LIST SECTION
+   ========================================================= */
+
+.supervisor-list {
+  padding: 4px 21px 12px;
+}
+
+.supervisor-list-row {
+  min-height: 69px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  border-bottom: 1px solid #f0f2f6;
+}
+
+.supervisor-list-row:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   LIST AVATAR
+   ========================================================= */
+
+.supervisor-list-avatar {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #dbeafe,
+    #e0e7ff
+  );
+
+  color: #3156b7;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PAYMENT ICON
+   ========================================================= */
+
+.supervisor-payment-icon {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f5f3ff;
+
+  color: #7c3aed;
+}
+
+
+/* =========================================================
+   STUDENT DETAILS
+   ========================================================= */
+
+.supervisor-student-details {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.supervisor-student-details strong {
+  overflow: hidden;
+
+  color: #1e293b;
+
+  font-size: 12px;
+
+  font-weight: 750;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.supervisor-student-details small {
+  margin-top: 4px;
+
+  overflow: hidden;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.supervisor-list-date {
+  flex-shrink: 0;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PAYMENT AMOUNT
+   ========================================================= */
+
+.supervisor-payment-amount {
+  flex-shrink: 0;
+
+  color: #172033;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.supervisor-empty-text {
+  margin: 0;
+
+  padding: 34px 10px;
+
+  text-align: center;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.supervisor-quick-actions {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 10px;
+
+  padding: 17px 21px 21px;
+}
+
+.supervisor-quick-action-btn {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 12px;
+
+  border: 1px solid #edf1f6;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.supervisor-quick-action-btn:hover {
+  transform: translateY(-2px);
+
+  border-color: #dbe4f0;
+
+  background: #fbfdff;
+
+  box-shadow: 0 7px 18px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   QUICK ACTION ICON
+   ========================================================= */
+
+.supervisor-action-icon {
+  width: 35px;
+  height: 35px;
+
+  flex: 0 0 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+}
+
+
+/* =========================================================
+   ACTION COLORS
+   ========================================================= */
+
+.accent-blue {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.accent-amber {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.accent-emerald {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.accent-rose {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.accent-sky {
+  background: #f0f9ff;
+  color: #0284c7;
+}
+
+
+/* =========================================================
+   QUICK ACTION TEXT
+   ========================================================= */
+
+.supervisor-quick-action-btn > div {
+  min-width: 0;
+}
+
+.supervisor-quick-action-btn strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #1e293b;
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.supervisor-quick-action-btn small {
+  display: block;
+
+  margin-top: 3px;
+
+  overflow: hidden;
+
+  color: #94a3b8;
+
+  font-size: 8px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   REFRESH SPINNER
+   ========================================================= */
+
+.spin-icon {
+  animation: supervisorSpin 0.9s linear infinite;
+}
+
+@keyframes supervisorSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+.supervisor-secondary-button:focus-visible,
+.supervisor-primary-button:focus-visible,
+.supervisor-card-action:focus-visible,
+.supervisor-quick-action-btn:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1150px) {
+  .supervisor-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .supervisor-quick-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .supervisor-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .supervisor-occupancy {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .supervisor-welcome-section {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .supervisor-welcome-actions {
+    width: 100%;
+  }
+
+  .supervisor-secondary-button,
+  .supervisor-primary-button {
+    flex: 1;
+  }
+
+  .supervisor-quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  /* WELCOME */
+
+  .supervisor-welcome-section {
+    margin-bottom: 14px;
+
+    padding: 18px 15px;
+
+    border-radius: 15px;
+  }
+
+  .supervisor-welcome-label {
+    font-size: 8px;
+  }
+
+  .supervisor-welcome-section h1 {
+    font-size: 23px;
+  }
+
+  .supervisor-welcome-section p {
+    font-size: 11px;
+  }
+
+  .supervisor-welcome-actions {
+    gap: 7px;
+  }
+
+  .supervisor-secondary-button,
+  .supervisor-primary-button {
+    min-height: 39px;
+
+    padding: 0 10px;
+
+    font-size: 10px;
+  }
+
+
+  /* STAT CARDS */
+
+  .supervisor-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+
+    margin-bottom: 14px;
+  }
+
+  .supervisor-stat-card {
+    gap: 8px;
+
+    padding: 12px;
+
+    border-radius: 13px;
+  }
+
+  .supervisor-stat-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-basis: 36px;
+
+    border-radius: 9px;
+  }
+
+  .supervisor-stat-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .supervisor-stat-main > span {
+    font-size: 8px;
+  }
+
+  .supervisor-stat-main strong {
+    font-size: 19px;
+  }
+
+  .supervisor-stat-main small {
+    font-size: 7px;
+  }
+
+
+  /* GRID */
+
+  .supervisor-dashboard-grid {
+    gap: 14px;
+
+    margin-bottom: 14px;
+  }
+
+
+  /* CARD */
+
+  .supervisor-card {
+    border-radius: 15px;
+  }
+
+  .supervisor-card-heading {
+    padding: 15px 14px 12px;
+
+    gap: 8px;
+  }
+
+  .supervisor-card-eyebrow {
+    font-size: 7px;
+  }
+
+  .supervisor-card-heading h2 {
+    font-size: 14px;
+  }
+
+  .supervisor-card-action {
+    padding-top: 3px;
+
+    font-size: 9px;
+  }
+
+
+  /* OCCUPANCY */
+
+  .supervisor-occupancy {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    min-height: auto;
+
+    padding: 18px 14px;
+  }
+
+  .supervisor-radial-gauge-container {
+    width: 130px;
+    height: 130px;
+  }
+
+  .supervisor-radial-text strong {
+    font-size: 27px;
+  }
+
+  .supervisor-radial-text span {
+    font-size: 8px;
+  }
+
+  .supervisor-mini-stats {
+    width: 100%;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+  .supervisor-mini-stat {
+    min-height: 58px;
+
+    padding: 10px;
+  }
+
+  .supervisor-mini-stat span {
+    font-size: 8px;
+  }
+
+  .supervisor-mini-stat strong {
+    margin-top: 4px;
+
+    font-size: 17px;
+  }
+
+
+  /* FINANCE */
+
+  .supervisor-finance-list {
+    padding: 3px 14px 10px;
+  }
+
+  .supervisor-finance-item {
+    min-height: 67px;
+
+    gap: 10px;
+
+    padding: 11px 0;
+  }
+
+  .supervisor-finance-icon {
+    width: 35px;
+    height: 35px;
+
+    flex-basis: 35px;
+
+    border-radius: 9px;
+  }
+
+  .supervisor-finance-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .supervisor-finance-text {
+    gap: 8px;
+  }
+
+  .supervisor-finance-text small {
+    font-size: 9px;
+  }
+
+  .supervisor-finance-text strong {
+    font-size: 12px;
+  }
+
+
+  /* LISTS */
+
+  .supervisor-list {
+    padding: 3px 14px 10px;
+  }
+
+  .supervisor-list-row {
+    min-height: 61px;
+
+    gap: 9px;
+  }
+
+  .supervisor-list-avatar,
+  .supervisor-payment-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-basis: 34px;
+  }
+
+  .supervisor-list-avatar {
+    font-size: 9px;
+  }
+
+  .supervisor-student-details strong {
+    font-size: 10px;
+  }
+
+  .supervisor-student-details small {
+    font-size: 8px;
+  }
+
+  .supervisor-list-date {
+    font-size: 8px;
+  }
+
+  .supervisor-payment-amount {
+    font-size: 11px;
+  }
+
+
+  /* QUICK ACTIONS */
+
+  .supervisor-quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    padding: 14px;
+  }
+
+  .supervisor-quick-action-btn {
+    gap: 7px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+  }
+
+  .supervisor-action-icon {
+    width: 31px;
+    height: 31px;
+
+    flex-basis: 31px;
+
+    border-radius: 8px;
+  }
+
+  .supervisor-action-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .supervisor-quick-action-btn strong {
+    font-size: 9px;
+  }
+
+  .supervisor-quick-action-btn small {
+    font-size: 7px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .supervisor-welcome-actions {
+    flex-direction: column;
+  }
+
+  .supervisor-secondary-button,
+  .supervisor-primary-button {
+    width: 100%;
+  }
+
+  .supervisor-stat-grid {
+    gap: 7px;
+  }
+
+  .supervisor-stat-card {
+    padding: 10px;
+  }
+
+  .supervisor-stat-icon {
+    width: 32px;
+    height: 32px;
+
+    flex-basis: 32px;
+  }
+
+  .supervisor-stat-main strong {
+    font-size: 17px;
+  }
+
+  .supervisor-occupancy {
+    padding: 16px 12px;
+  }
+
+  .supervisor-mini-stat {
+    min-height: 55px;
+  }
+
+  .supervisor-quick-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .supervisor-stat-card,
+  .supervisor-quick-action-btn,
+  .supervisor-primary-button,
+  .supervisor-secondary-button,
+  .supervisor-mini-stat {
+    transition: none;
+  }
+
+  .supervisor-radial-progress {
+    transition: none;
+  }
+
+  .spin-icon {
+    animation: none;
+  }
+}

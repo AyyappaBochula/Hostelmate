@@ -1,0 +1,679 @@
+/* =========================================
+   REPAIR REQUESTS - SUPERVISOR DASHBOARD
+   ========================================= */
+
+.repair-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+/* =========================================
+   REPAIR CARD
+   ========================================= */
+
+.repair-card {
+  position: relative;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e5eaf2;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(30, 64, 175, 0.06);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.repair-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 38px rgba(30, 64, 175, 0.1);
+}
+
+.repair-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #6366f1;
+}
+
+/* Priority top borders */
+
+.repair-card.priority-critical::before {
+  background: #dc2626;
+}
+
+.repair-card.priority-high::before {
+  background: #f97316;
+}
+
+.repair-card.priority-medium::before {
+  background: #eab308;
+}
+
+.repair-card.priority-low::before {
+  background: #22c55e;
+}
+
+/* =========================================
+   CARD HEADING
+   ========================================= */
+
+.repair-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.repair-priority-pill,
+.repair-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* =========================================
+   PRIORITY PILLS
+   ========================================= */
+
+.repair-priority-pill.priority-critical {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.repair-priority-pill.priority-high {
+  color: #c2410c;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+}
+
+.repair-priority-pill.priority-medium {
+  color: #a16207;
+  background: #fefce8;
+  border: 1px solid #fde68a;
+}
+
+.repair-priority-pill.priority-low {
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================================
+   STATUS PILLS
+   ========================================= */
+
+.repair-status-pill {
+  color: #b45309;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+}
+
+.repair-status-pill.resolved {
+  color: #15803d;
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.repair-status-pill.pending {
+  color: #b45309;
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+/* =========================================
+   CATEGORY
+   ========================================= */
+
+.repair-category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  padding: 7px 10px;
+  color: #4f46e5;
+  background: #eef2ff;
+  border: 1px solid #e0e7ff;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.repair-category-tag svg {
+  flex-shrink: 0;
+}
+
+/* =========================================
+   TITLE & DESCRIPTION
+   ========================================= */
+
+.repair-card h3 {
+  margin: 0 0 9px;
+  color: #172033;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 750;
+}
+
+.repair-card > p {
+  min-height: 48px;
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* =========================================
+   LOCATION
+   ========================================= */
+
+.repair-location {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+  padding: 11px 13px;
+  background: #f8fafc;
+  border: 1px solid #edf1f6;
+  border-radius: 11px;
+}
+
+.repair-location span {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.repair-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #edf0f5;
+}
+
+.repair-footer > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.repair-footer small {
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.repair-footer strong {
+  color: #1e293b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================================
+   MODAL OVERLAY
+   ========================================= */
+
+.owner-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: repairOverlayIn 0.2s ease;
+}
+
+@keyframes repairOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   MODAL
+   ========================================= */
+
+.owner-modal {
+  width: min(620px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.2);
+  animation: repairModalIn 0.25s ease;
+}
+
+@keyframes repairModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   MODAL HEADER
+   ========================================= */
+
+.owner-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.owner-modal-header > div {
+  min-width: 0;
+}
+
+.owner-modal-header span {
+  display: block;
+  margin-bottom: 6px;
+  color: #6366f1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.owner-modal-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 750;
+}
+
+.owner-modal-header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  padding: 0;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.owner-modal-header button:hover {
+  color: #1e293b;
+  background: #f1f5f9;
+  transform: rotate(3deg);
+}
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.owner-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  padding: 24px 26px 26px;
+}
+
+.owner-form-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.owner-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.owner-form-field span {
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.owner-form-field input,
+.owner-form-field select,
+.owner-form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 13px;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 11px;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.owner-form-field input,
+.owner-form-field select {
+  height: 44px;
+}
+
+.owner-form-field textarea {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.owner-form-field input::placeholder,
+.owner-form-field textarea::placeholder {
+  color: #a1aab8;
+}
+
+.owner-form-field input:hover,
+.owner-form-field select:hover,
+.owner-form-field textarea:hover {
+  border-color: #c4ceda;
+}
+
+.owner-form-field input:focus,
+.owner-form-field select:focus,
+.owner-form-field textarea:focus {
+  border-color: #6366f1;
+  background: #fcfcff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* =========================================
+   SELECT
+   ========================================= */
+
+.owner-form-field select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+   ========================================= */
+
+.owner-full-button {
+  width: 100%;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+/* =========================================
+   SUPERVISOR BUTTONS
+   These complement existing dashboard buttons
+   ========================================= */
+
+.supervisor-primary-button,
+.supervisor-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 11px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.supervisor-primary-button {
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  border: 1px solid #4f46e5;
+  box-shadow: 0 7px 18px rgba(79, 70, 229, 0.2);
+}
+
+.supervisor-primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.28);
+}
+
+.supervisor-secondary-button {
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+}
+
+.supervisor-secondary-button:hover {
+  color: #4f46e5;
+  background: #f8faff;
+  border-color: #c7d2fe;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   REFRESH SPINNER
+   ========================================= */
+
+.spin-icon {
+  animation: repairSpin 0.9s linear infinite;
+}
+
+@keyframes repairSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
+.repair-grid:empty::before {
+  content: "No repair requests found.";
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  padding: 30px;
+  color: #64748b;
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+  .repair-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .repair-card {
+    padding: 20px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .repair-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .repair-card {
+    padding: 18px;
+    border-radius: 17px;
+  }
+
+  .repair-card-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+
+  .repair-card h3 {
+    font-size: 17px;
+  }
+
+  .repair-card > p {
+    min-height: auto;
+  }
+
+  .repair-footer {
+    margin-top: 15px;
+  }
+
+  .owner-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .owner-modal {
+    width: 100%;
+    max-height: 94vh;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .owner-modal-header {
+    padding: 20px;
+  }
+
+  .owner-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .owner-modal form {
+    padding: 20px;
+  }
+
+  .owner-form-two {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .supervisor-welcome-actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  .repair-card {
+    padding: 16px;
+  }
+
+  .repair-priority-pill,
+  .repair-status-pill {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  .repair-category-tag {
+    font-size: 11px;
+  }
+
+  .repair-footer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .repair-footer > div {
+    padding: 9px 0;
+  }
+
+  .owner-modal-header {
+    padding: 18px;
+  }
+
+  .owner-modal form {
+    gap: 15px;
+    padding: 18px;
+  }
+
+  .owner-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .supervisor-primary-button,
+  .supervisor-secondary-button {
+    min-height: 40px;
+    padding: 0 13px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .repair-card,
+  .supervisor-primary-button,
+  .supervisor-secondary-button,
+  .owner-modal-header button {
+    transition: none;
+  }
+
+  .spin-icon,
+  .repair-card,
+  .owner-modal {
+    animation: none;
+  }
+}
